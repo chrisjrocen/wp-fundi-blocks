@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wp-fundi-blocks/wp-fundi-carousel",
+	"version": "0.1.0",
+	"title": "Fundi carousel",
+	"category": "widgets",
+	"icon": "slides",
+	"description": "Display Fundi carousel.",
+	"example": {},
+	"textdomain": "fundi-carousel",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": [
+		"file:./style-index.css",
+		"wp-fundi-library-swipper-bundle-css"
+	],
+	"viewScript": [
+		"wp-fundi-library-swipper-bundle",
+		"wp-fundi-library-carousel"
+	]
+}
