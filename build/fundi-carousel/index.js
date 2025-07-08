@@ -8,7 +8,7 @@
   \******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-fundi-blocks/wp-fundi-carousel","version":"0.1.0","title":"Fundi carousel","category":"widgets","icon":"slides","description":"Display Fundi carousel.","example":{},"textdomain":"fundi-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":["file:./style-index.css","wp-fundi-library-swipper-bundle-css"],"viewScript":["wp-fundi-library-swipper-bundle","wp-fundi-library-carousel"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-fundi-blocks/wp-fundi-carousel","version":"0.1.0","title":"Fundi carousel","category":"widgets","icon":"slides","description":"Display Fundi carousel.","example":{},"attributes":{"slides":{"type":"array","default":[]}},"textdomain":"fundi-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":["file:./style-index.css","wp-fundi-library-swipper-bundle-css"],"viewScript":["wp-fundi-library-swipper-bundle","wp-fundi-library-carousel"]}');
 
 /***/ }),
 
@@ -72,24 +72,94 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit({
   attributes,
-  setAttributes,
-  clientId
+  setAttributes
 }) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
-  const instanceId = clientId;
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+  const slides = attributes.slides || [];
+  const updateSlide = (index, key, value) => {
+    const newSlides = [...slides];
+    newSlides[index][key] = value;
     setAttributes({
-      instanceId
+      slides: newSlides
     });
-  }, [instanceId]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      ...blockProps,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2___default()), {
+  };
+  const addSlide = () => {
+    const newSlides = [...slides, {
+      imageUrl: '',
+      title: '',
+      subtitle: '',
+      author: ''
+    }];
+    setAttributes({
+      slides: newSlides
+    });
+  };
+  const removeSlide = index => {
+    const newSlides = [...slides];
+    newSlides.splice(index, 1);
+    setAttributes({
+      slides: newSlides
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Slides'),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+          onClick: addSlide,
+          variant: "primary",
+          children: "Add Slide"
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
+      children: [slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "editor-slide",
+        style: {
+          border: '1px solid #ccc',
+          padding: '1rem',
+          marginBottom: '1rem'
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+            onSelect: media => updateSlide(index, 'imageUrl', media.url),
+            allowedTypes: ['image'],
+            render: ({
+              open
+            }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+              onClick: open,
+              className: "button",
+              children: slide.imageUrl ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                src: slide.imageUrl,
+                style: {
+                  width: '100px',
+                  height: 'auto'
+                },
+                alt: ""
+              }) : 'Upload Image'
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+          label: "Title",
+          value: slide.title,
+          onChange: value => updateSlide(index, 'title', value)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+          label: "Subtitle",
+          value: slide.subtitle,
+          onChange: value => updateSlide(index, 'subtitle', value)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+          label: "Author",
+          value: slide.author,
+          onChange: value => updateSlide(index, 'author', value)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+          onClick: () => removeSlide(index),
+          isDestructive: true,
+          children: "Remove Slide"
+        })]
+      }, index)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2___default()), {
         block: "wp-fundi-blocks/wp-fundi-carousel",
         attributes: attributes
-      })
-    })
+      })]
+    })]
   });
 }
 

@@ -1,4 +1,53 @@
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./blocks/fundi-carousel/style.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.swiper-container {
+  width: 100%;
+  padding: 2rem 0;
+}
 
+.swiper-slide {
+  display: flex;
+  background: #000;
+  color: #fff;
+  font-family: Georgia, serif;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image {
+  flex: 1;
+  text-align: center;
+  background: #aaa;
+  padding: 1rem;
+}
+
+.carousel-image img {
+  width: auto;
+  max-height: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.carousel-content {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.carousel-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-author {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

@@ -25,28 +25,28 @@ class FundiCarousel extends BaseController {
 			add_action( 'init', array( $this, 'create_carousel_block_init' ) );
 			// Admin Scripts called for usage on site.
 			add_action( 'admin_enqueue_scripts', array( $this, 'register_scripts' ), 1 );
-			add_action( 'admin_enqueue_scripts', array( $this, 'localise' ) );
-
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ), 1 );
 	}
+
 	/**
-	 * Localise variables for use inside block
+	 * Register scripts and styles for the block.
 	 *
 	 * @return void
 	 */
-	public function localise() {
-		wp_register_script( 'wp-fundi-localize-people', $this->plugin_url . 'assets/js/localize/index.js', array(), true );
-		wp_enqueue_script( 'wp-fundi-localize-people' );
-		wp_localize_script(
-			'wp-fundi-localize-people',
-			'wp-fundiPeople',
-			array(
-				'postTypeName'       => $this->post_type_name,
-				'postTypeNameSingle' => $this->post_type_name_single,
-				'postTypeSlug'       => $this->post_type_slug,
-				'taxonomySlug'       => $this->people_taxonomy_slug,
-				'taxonomyEnabled'    => $this->enable_taxonomy,
-			)
+	public function register_scripts() {
+		wp_enqueue_script(
+			'swiper-script',
+			'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+			array( 'wp-element' ),
+			null,
+			true
+		);
+
+		wp_enqueue_style(
+			'swiper-style',
+			'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+			array(),
+			null
 		);
 	}
 
@@ -54,12 +54,57 @@ class FundiCarousel extends BaseController {
 	 * Get carousel is a render callback for the dynamic block - document list.
 	 * Returns a formatted list for Gutenberg block
 	 *
-	 * @param object $attr default shortcode for attributes from React.
+	 * @param array $attributes Attributes from React.
 	 * @return string
 	 */
-	public function get_carousel( $attr ) {
+	public function get_carousel( $attributes ) {
+		$slides = $attributes['slides'] ?? array();
 
-		return 'Block here';
+		if ( empty( $slides ) ) {
+			return '';
+		}
+
+		$uid         = uniqid( 'swiper-' );
+		$slides_html = '';
+
+		foreach ( $slides as $slide ) {
+			$image_html = '';
+			if ( ! empty( $slide['imageUrl'] ) ) {
+				$image_html = sprintf(
+					'<img src="%s" alt="">',
+					esc_url( $slide['imageUrl'] )
+				);
+			}
+
+			$slides_html .= sprintf(
+				'<div class="swiper-slide">
+					<div class="carousel-image">%s</div>
+					<div class="carousel-content">
+						<div class="carousel-title">%s</div>
+						<div class="carousel-subtitle">%s</div>
+						<div class="carousel-author">by %s</div>
+					</div>
+				</div>',
+				$image_html,
+				esc_html( $slide['title'] ?? '' ),
+				esc_html( $slide['subtitle'] ?? '' ),
+				esc_html( $slide['author'] ?? '' )
+			);
+		}
+
+		$html = sprintf(
+			'<div class="swiper-container %1$s">
+				<div class="swiper-wrapper">%2$s</div>
+				<div class="swiper-pagination"></div>
+			</div>',
+			esc_attr( $uid ),
+			$slides_html
+		);
+
+		// Optionally append Swiper JS initialization.
+		$html .= $this->register_swiper_js( $uid );
+
+		return $html;
 	}
 
 	/**
@@ -74,5 +119,31 @@ class FundiCarousel extends BaseController {
 				'render_callback' => array( $this, 'get_carousel' ),
 			)
 		);
+	}
+
+
+	/**
+	 * Register Swiper JS for the carousel block.
+	 *
+	 * @param string $uid Unique identifier for the swiper instance.
+	 * @return string
+	 */
+	public function register_swiper_js( $uid ) {
+		$script = sprintf(
+			"<script>
+document.addEventListener('DOMContentLoaded', function () {
+	new Swiper('.%s', {
+		loop: true,
+		pagination: {
+			el: '.%s .swiper-pagination',
+			clickable: true
+		},
+	});
+});
+</script>",
+			esc_js( $uid ),
+			esc_js( $uid )
+		);
+		return $script;
 	}
 }
