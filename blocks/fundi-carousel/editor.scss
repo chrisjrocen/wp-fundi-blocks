@@ -4,6 +4,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-fundi-carousel {
-	border: 1px dotted #f00;
+.wp-block-wp-fundi-blocks-wp-fundi-carousel {
+	border: 1px dotted grey;
+	display: flex;
+	flex-wrap: wrap;
 }
