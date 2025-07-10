@@ -1,51 +1,58 @@
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./blocks/fundi-carousel/style.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.swiper-container {
-  width: 100%;
-  padding: 2rem 0;
+:root {
+  --swiper-theme-color: #007aff;
 }
 
-.swiper-slide {
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel {
+  max-width: 100%;
+}
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel .swiper-slide {
+  max-width: 90%;
   display: flex;
+  flex-shrink: 0;
   background: #000;
   color: #fff;
   font-family: Georgia, serif;
   padding: 2rem;
   align-items: center;
   justify-content: center;
+  height: auto;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
 }
-
-.carousel-image {
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel .swiper-slide.swiper-slide-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel .carousel-image {
   flex: 1;
   text-align: center;
   background: #aaa;
   padding: 1rem;
 }
-
-.carousel-image img {
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel .carousel-image img {
   width: auto;
   max-height: 300px;
   -o-object-fit: contain;
      object-fit: contain;
 }
-
-.carousel-content {
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel .carousel-content {
   flex: 1;
   padding-right: 2rem;
 }
-
-.carousel-title {
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel .carousel-content .carousel-title {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-
-.carousel-subtitle {
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel .carousel-content .carousel-subtitle {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
-
-.carousel-author {
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel .carousel-content .carousel-author {
   font-style: italic;
   font-size: 1rem;
 }

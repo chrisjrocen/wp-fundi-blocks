@@ -1,47 +1,63 @@
-.swiper-container {
-    width: 100%;
-    padding: 2rem 0;
+:root {
+    --swiper-theme-color: #007aff;
 }
 
-.swiper-slide {
-    display: flex;
-    background: #000;
-    color: #fff;
-    font-family: Georgia, serif;
-    padding: 2rem;
-    align-items: center;
-    justify-content: center;
-}
+.swiper-container.wp-block-wp-fundi-blocks-wp-fundi-carousel {
 
-.carousel-image {
-    flex: 1;
-    text-align: center;
-    background: #aaa;
-    padding: 1rem;
-}
+    max-width: 100%;
+    
+    .swiper-slide {
+        max-width: 90%;
+        display: flex;
+        flex-shrink: 0;
+        background: #000;
+        color: #fff;
+        font-family: Georgia, serif;
+        padding: 2rem;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
 
-.carousel-image img {
-    width: auto;
-    max-height: 300px;
-    object-fit: contain;
-}
+        &.swiper-slide-active{
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    }
 
-.carousel-content {
-    flex: 1;
-    padding-left: 2rem;
-}
+    .carousel-image {
+        flex: 1;
+        text-align: center;
+        background: #aaa;
+        padding: 1rem;
 
-.carousel-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
+        img {
+            width: auto;
+            max-height: 300px;
+            object-fit: contain;
+        }
+    }
 
-.carousel-subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-}
+    .carousel-content {
+        flex: 1;
+        padding-left: 2rem;
 
-.carousel-author {
-    font-style: italic;
-    font-size: 1rem;
+        .carousel-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-author {
+            font-style: italic;
+            font-size: 1rem;
+        }
+    }
 }

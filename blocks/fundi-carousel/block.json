@@ -2,16 +2,145 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "wp-fundi-blocks/wp-fundi-carousel",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"title": "Fundi carousel",
 	"category": "widgets",
 	"icon": "slides",
 	"description": "Display Fundi carousel.",
 	"example": {},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		],
+		"anchor": true,
+		"ariaLabel": true,
+		"multiple": true,
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"shadow": true,
+		"color": {
+			"text": true,
+			"background": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"text": true,
+				"background": true
+			}
+		}
+	},
 	"attributes": {
 		"slides": {
 			"type": "array",
 			"default": []
+		},
+		"instanceId": {
+			"type": "string",
+			"default": ""
+		},
+		"categoryID": {
+			"type": "number",
+			"default": 0
+		},
+		"numberOfItems": {
+			"type": "number",
+			"default": "3"
+		},
+		"showText": {
+			"type": "boolean",
+			"default": true
+		},
+		"showTextName": {
+			"type": "boolean",
+			"default": true
+		},
+		"showTextCompany": {
+			"type": "boolean",
+			"default": true
+		},
+		"showTextBlurb": {
+			"type": "boolean",
+			"default": true
+		},
+		"orderBy": {
+			"type": "string",
+			"default": ""
+		},
+		"order": {
+			"type": "string",
+			"default": "DESC"
+		},
+		"slidesPerView": {
+			"type": "number",
+			"default": 4
+		},
+		"autoplayDelay": {
+			"type": "number",
+			"default": 5000
+		},
+		"autoplayDisableOninteraction": {
+			"type": "boolean",
+			"default": true
+		},
+		"itemDevice": {
+			"type": "string",
+			"default": "desktop"
+		},
+		"desktopSlidesPerView": {
+			"type": "number",
+			"default": 4
+		},
+		"tabSlidesPerView": {
+			"type": "number",
+			"default": 3
+		},
+		"phoneSlidesPerView": {
+			"type": "number",
+			"default": 2
+		},
+		"desktopSpaceBetween": {
+			"type": "number",
+			"default": 30
+		},
+		"tabSpaceBetween": {
+			"type": "number",
+			"default": 30
+		},
+		"phoneSpaceBetween": {
+			"type": "number",
+			"default": 30
+		},
+		"lazyLoad": {
+			"type": "boolean",
+			"default": true
+		},
+		"loopSlides": {
+			"type": "boolean",
+			"default": true
+		},
+		"showDots": {
+			"type": "boolean",
+			"default": true
 		}
 	},
 	"textdomain": "fundi-carousel",

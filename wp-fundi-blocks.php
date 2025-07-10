@@ -7,7 +7,7 @@
  * Author URI:      https://www.wp-fundi.com
  * Text Domain:     wp-fundi-blocks
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         0.2.0
  *
  * @package WP_FUNDI_BLOCKS
  */
@@ -15,7 +15,7 @@
 // If this file is called firectly, abort!!!
 defined( 'ABSPATH' ) || die( 'No Access!' );
 
-define( 'WP_FUNDI_BLOCKS_VERSION', '0.1.0' );
+define( 'WP_FUNDI_BLOCKS_VERSION', '0.2.0' );
 
 // Require once the Composer Autoload.
 if ( file_exists( __DIR__ . '/lib/autoload.php' ) ) {
