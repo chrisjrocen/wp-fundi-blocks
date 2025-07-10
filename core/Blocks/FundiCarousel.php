@@ -63,6 +63,9 @@ class FundiCarousel extends BaseController {
 	 * @return string
 	 */
 	public function get_carousel( $attributes ) {
+
+		do_action( 'qm/debug', $attributes );
+
 		$slides = $attributes['slides'] ?? array();
 
 		if ( empty( $slides ) ) {
