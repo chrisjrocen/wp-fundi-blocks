@@ -21,6 +21,7 @@ final class Init {
 		return array(
 			Base\Activate::class,
 			Blocks\FundiCarousel::class,
+			Blocks\Masthead::class,
 		);
 	}
 

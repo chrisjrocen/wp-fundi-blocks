@@ -1,0 +1,136 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wp-fundi-blocks/masthead",
+  "version": "0.1.0",
+  "title": "Masthead",
+  "category": "text",
+  "icon": "businessman",
+  "description": "Display contributors in an elegant, movie credits-style vertical layout with customizable styling and JSON-based configuration.",
+  "example": {
+    "attributes": {
+      "entries": [
+        {
+          "title": "Founder & Editor",
+          "names": [
+            "Rodney Muhumuza"
+          ]
+        },
+        {
+          "title": "Advisory Editors",
+          "names": [
+            "Hassan Higenyi",
+            "Carol Alyen Byanya"
+          ]
+        }
+      ]
+    }
+  },
+  "attributes": {
+    "entries": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Founder & Editor",
+          "names": [
+            "Rodney Muhumuza"
+          ]
+        },
+        {
+          "title": "Associate Editor",
+          "names": [
+            "Berena"
+          ]
+        },
+        {
+          "title": "Poetry Editor",
+          "names": [
+            "Ssebo Lule"
+          ]
+        },
+        {
+          "title": "Advisory Editors",
+          "names": [
+            "Hassan Higenyi",
+            "Carol Alyen Byanya",
+            "Emmanuel Davies Gyezaho"
+          ]
+        }
+      ]
+    },
+    "jsonInput": {
+      "type": "string",
+      "default": ""
+    },
+    "titleFontWeight": {
+      "type": "string",
+      "default": "bold"
+    },
+    "titleFontStyle": {
+      "type": "string",
+      "default": "normal"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#333"
+    },
+    "titleTextTransform": {
+      "type": "string",
+      "default": "capitalize"
+    },
+    "nameFontWeight": {
+      "type": "string",
+      "default": "normal"
+    },
+    "nameFontStyle": {
+      "type": "string",
+      "default": "normal"
+    },
+    "nameColor": {
+      "type": "string",
+      "default": "#555"
+    },
+    "nameTextTransform": {
+      "type": "string",
+      "default": "none"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "transparent"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 2
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 2
+    },
+    "paddingLeft": {
+      "type": "number",
+      "default": 1
+    },
+    "paddingRight": {
+      "type": "number",
+      "default": 1
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "margin": true,
+      "padding": false
+    }
+  },
+  "textdomain": "masthead-block-wp",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

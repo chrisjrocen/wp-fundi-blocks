@@ -1,0 +1,95 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./blocks/masthead/style.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+.wp-block-wp-fundi-blocks-masthead {
+  line-height: 1.6em;
+}
+.wp-block-wp-fundi-blocks-masthead .masthead-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry {
+  margin-bottom: 1em;
+  display: contents;
+}
+.wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry:last-child {
+  margin-bottom: 0;
+}
+.wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry .masthead-title {
+  text-align: right;
+  margin: 0;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+}
+.wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry .masthead-names {
+  text-align: left;
+  margin: 0;
+}
+.wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry .masthead-name {
+  margin: 0;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+}
+.wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry .masthead-section {
+  margin: 2em 0 1em 0;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  grid-column: 1/-1;
+}
+@media (prefers-color-scheme: dark) {
+  .wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry .masthead-section {
+    border-top-color: #444;
+  }
+}
+@media (max-width: 768px) {
+  .wp-block-wp-fundi-blocks-masthead {
+    line-height: 1.8em;
+  }
+  .wp-block-wp-fundi-blocks-masthead .masthead-container {
+    max-width: 100%;
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry {
+    margin-bottom: 0.8em;
+    display: block;
+  }
+  .wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry .masthead-title {
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 0.2em;
+  }
+  .wp-block-wp-fundi-blocks-masthead .masthead-container .masthead-entry .masthead-names {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+.editor-styles-wrapper .wp-block-wp-fundi-blocks-masthead .masthead-placeholder {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  background: #f8f9fa;
+  border: 2px dashed #ddd;
+  border-radius: 4px;
+  grid-column: 1/-1;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

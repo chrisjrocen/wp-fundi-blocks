@@ -1,0 +1,35 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../../../../../../../../usr/local/lib/node_modules/@wordpress/scripts/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./blocks/masthead/editor.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ */
+.wp-block-wp-fundi-blocks-masthead {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  position: relative;
+}
+.wp-block-wp-fundi-blocks-masthead:hover {
+  border-color: #007cba;
+}
+.wp-block-wp-fundi-blocks-masthead.is-selected {
+  border-color: #007cba;
+  box-shadow: 0 0 0 1px #007cba;
+}
+.wp-block-wp-fundi-blocks-masthead .components-panel__body .components-color-picker {
+  margin-top: 8px;
+}
+.wp-block-wp-fundi-blocks-masthead .components-panel__body .components-base-control__help {
+  color: #757575;
+}
+.wp-block-wp-fundi-blocks-masthead .components-notice {
+  margin: 8px 0;
+}
+
+.block-editor-block-toolbar .components-toolbar-group .masthead-toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/*# sourceMappingURL=index.css.map*/
