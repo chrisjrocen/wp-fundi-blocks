@@ -14,6 +14,9 @@ A WordPress plugin with Reusable gutenberg blocks to use on multiple sites.
 
 ## Changelog
 
+### 1.0.0
+- Release for production
+
 ### 0.2.0
 
 - Made swiper.js dynamic
