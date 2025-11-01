@@ -14,7 +14,12 @@ A WordPress plugin with Reusable gutenberg blocks to use on multiple sites.
 
 ## Changelog
 
+### 1.1.0
+
+- Added image comparison shortcode
+
 ### 1.0.0
+
 - Release for production
 
 ### 0.2.0
