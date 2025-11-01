@@ -22,6 +22,7 @@ final class Init {
 			Base\Activate::class,
 			Blocks\FundiCarousel::class,
 			Blocks\Masthead::class,
+			Shortcodes\ImageCompare::class,
 		);
 	}
 
